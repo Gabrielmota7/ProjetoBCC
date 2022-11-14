@@ -15,7 +15,6 @@ const User = require('./models/User')
 
 //import Routes
 const pedidosRoutes = require('./routes/pedidosRoutes')
-const homeRoutes = require('./routes/homeRoutes')
 const authRoutes = require('./routes/authRoutes')
 
 //import Controller
@@ -74,7 +73,6 @@ app.use((req, res, next) => {
 app.use('/pedidos', pedidosRoutes)
 app.use('/', authRoutes)
 app.get('/pedidos', PedidosController.showPedidos)
-app.use('/', homeRoutes)
 app.get('/')
 
 conn

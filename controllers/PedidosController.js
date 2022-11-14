@@ -13,4 +13,8 @@ module.exports = class PedidosController {
     static contato(req, res) {
         res.render('pedidos/contato')
     }
+
+    static home(req, res) {
+        res.render('pedidos/home')
+    }
 }

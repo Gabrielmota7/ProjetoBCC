@@ -7,6 +7,7 @@ const PedidosController = require('../controllers/PedidosController')
 
 //controller
 router.get('/contato', PedidosController.contato)
+router.get('/home', PedidosController.home)
 router.get('/servico', PedidosController.servico)
 router.get('/pedidos', PedidosController.showPedidos)
 
