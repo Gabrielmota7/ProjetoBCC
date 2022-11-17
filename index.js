@@ -18,7 +18,7 @@ const pedidosRoutes = require('./routes/pedidosRoutes')
 const authRoutes = require('./routes/authRoutes')
 
 //import Controller
-const PedidosController = require('./controllers/PedidosController')
+const PedidoController = require('./controllers/PedidoController')
 
 // Template engine
 app.engine('handlebars', exphbs.engine())
@@ -72,7 +72,7 @@ app.use((req, res, next) => {
 // Routes
 app.use('/pedidos', pedidosRoutes)
 app.use('/', authRoutes)
-app.get('/pedidos', PedidosController.showPedidos)
+//app.get('/pedidos', PedidoController.showPedidos)
 app.get('/')
 
 conn

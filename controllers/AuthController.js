@@ -1,4 +1,5 @@
 const User = require('../models/User')
+const Pedidos = require('../models/Pedidos')
 
 const bcrypt = require('bcryptjs')
 
@@ -98,10 +99,57 @@ module.exports = class AuthController {
         
     }
 
+    
+    static async contato(req, res) {
+        res.render('auth/contato')
+    }
+
     static logout(req, res) {
         req.session.destroy()
         console.log("saimos com sucesso ;)")
         res.redirect('/login')
     }
+
+    static servico(req, res) {
+        res.render('pedidos/servico')
+    }
+
+    static home(req, res) {
+        res.render('pedidos/home')
+    }
+
+    static async createPedidosSave(req, res) {
+        
+        const pedidos = { 
+            nome: req.body.nome, 
+            email: req.body.email,
+            telefone: req.body.telefone,
+            assunto: req.body.assunto,
+            descricao: req.body.descricao
+        }
+        
+        await Pedidos.create(pedidos)
+
+        try{
+        req.flash('message', 'pedido criado com sucesso!')
+        req.session.save(() => {
+            res.redirect('/contato')
+        }) 
+        }catch (err){
+            console.log('Houve um erro' + err)
+        }
+    }
+
+    static async showPedidos(req, res) {
+        const pedidosData = await Pedidos.findAll()
+
+        const pedidos = pedidosData.map((result) => result.dataValues)
+
+        console.log(pedidos);
+
+    res.render('pedidos/pedidos', {pedidos})
+    }
+
+        
 }
 

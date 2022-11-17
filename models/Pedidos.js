@@ -23,7 +23,7 @@ const Pedidos = db.define('Pedidos', {
         allowNull: false,
         require: true,
     },
-    descrição: {
+    descricao: {
         type: DataTypes.STRING,
         allowNull: false,
         require: true,

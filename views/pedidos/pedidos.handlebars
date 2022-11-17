@@ -1,1 +1,24 @@
 <h1>Pedidos aqui</h1>
+
+<div>
+    {{#each pedidos}}
+    <figure>
+        <blockquote>
+            "{{this.nome}}"
+        </blockquote>
+        <blockquote>
+            "{{this.email}}"
+        </blockquote>
+        <blockquote>
+            "{{this.telefone}}"
+        </blockquote>
+        <blockquote>
+            "{{this.assunto}}"
+        </blockquote>
+        <blockquote>
+            "{{this.descricao}}"
+        </blockquote>
+        <hr>
+    </figure>
+    {{/each}}
+</div>
