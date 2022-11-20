@@ -1,0 +1,19 @@
+<div>
+    <a href="/pedidos">Voltar</a>
+    <h1>Edite o Pedido</h1>
+    <form action="/edit" method="POST">
+    <input type="hidden" name="id" value="{{pedidos.id}}">
+    <div>
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" placeholder="Nome" value="{{pedidos.nome}}">
+            <label for="email">E-mail:</label>
+            <input type="text" name="email" placeholder="Email" value="{{pedidos.email}}">
+            <label for="telefone">Telefone:</label>
+            <input type="number" name="telefone" placeholder="Telefone" value="{{pedidos.telefone}}">
+            <label for="assunto">Assunto:</label>
+            <input type="text" name="assunto" placeholder="Assunto" value="{{pedidos.assunto}}">
+            <label for="descricao">Descrição:</label>
+            <input type="text" name="descricao" placeholder="Descrição" value="{{pedidos.descricao}}">
+    </div>
+    </form>
+</div>

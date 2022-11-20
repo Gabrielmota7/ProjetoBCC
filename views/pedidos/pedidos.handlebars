@@ -18,6 +18,11 @@
         <blockquote>
             "{{this.descricao}}"
         </blockquote>
+        <form action="/remove" method="POST">
+        <input type="hidden" name="id" value="{{this.id}}">
+        <a href="/pedidos/editar{{this.id}}" class="button-25">Editar</a>
+        <input type="submit" value="Excluir" class="button-25">
+        </form>
         <hr>
     </figure>
     {{/each}}

@@ -145,9 +145,56 @@ module.exports = class AuthController {
 
         const pedidos = pedidosData.map((result) => result.dataValues)
 
-        console.log(pedidos);
+        //console.log(pedidos);
 
     res.render('pedidos/pedidos', {pedidos})
+    }
+
+    static async editar(req, res) {
+        const id = req.params.id
+
+        const pedidos = await Pedidos.findOne({ where: {id: id}, raw: true})
+
+        res.render('/editar', {pedidos})
+    }
+
+    static async edit(req, res) {
+        const id=  req.body.id
+
+        const pedidos = { 
+            nome: req.body.nome, 
+            email: req.body.email,
+            telefone: req.body.telefone,
+            assunto: req.body.assunto,
+            descricao: req.body.descricao
+        }
+
+        try{
+            await Pedidos.update(pedidos, {where: {id: id} })
+
+            req.flash('message', 'Pedido atualizado com sucesso')
+
+            req.session.save(() => {
+                res.redirect('/pedidos')
+            })
+        }catch(err){
+            console.log('Ocorreu um erro na edição' + err);
+        }
+    }
+
+    static async removePedidos(req, res) {
+        const id = req.body.id
+
+
+        try {
+        await Pedidos.destroy({where: {id: id}})
+
+        req.flash('message', 'pedido removido com sucesso')
+        req.session.save(() => {
+            res.redirect('/pedidos')})
+        } catch(error) {
+            console.log('Ocorreu um erro' + error);
+        }
     }
 
         

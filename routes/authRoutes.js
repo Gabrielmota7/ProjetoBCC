@@ -17,6 +17,9 @@ router.get('/servico', AuthController.servico)
 router.post('/add', AuthController.createPedidosSave)
 router.get('/contato', AuthController.contato)
 router.get('/pedidos', AuthController.showPedidos)
+router.post('/remove', AuthController.removePedidos)
+router.get('/editar/:id', AuthController.editar)
+router.post('/edit', AuthController.edit)
 //router.get('/view', AuthController.view)
 
 module.exports = router
